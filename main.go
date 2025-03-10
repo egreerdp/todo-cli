@@ -28,18 +28,18 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// db.DB.Save(&database.List{
-	// 	Name: "Super Cool List",
-	// 	Tasks: []database.Task{
-	// 		{
-	// 			Name:        "A Task",
-	// 			Description: "Something to do.",
-	// 			Status:      database.InProgress,
-	// 		},
-	// 	},
-	// })
+	db.DB.Save(&database.List{
+		Name: "Super Cool List",
+		Tasks: []database.Task{
+			{
+				Name:        "A Task",
+				Description: "Something to do.",
+				Status:      database.InProgress,
+			},
+		},
+	})
 
-	p := tea.NewProgram(initialModel(db), tea.WithAltScreen())
+	p := tea.NewProgram(NewModel(db, cfg), tea.WithAltScreen())
 	if _, err := p.Run(); err != nil {
 		log.Fatal(err)
 	}
