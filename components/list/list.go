@@ -36,10 +36,10 @@ func (l *ListModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			_ = l.Db.Find(&items)
 			l.Items = items
 
-			return l, nil
+			return nil, nil
 		}
 	}
-	return l, nil
+	return nil, nil
 }
 
 func (l *ListModel) View() string {

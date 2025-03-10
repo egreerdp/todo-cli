@@ -59,7 +59,7 @@ func (m *mainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		case "a":
 			var cmd tea.Cmd
-			m.Elements[m.focusedIndex], cmd = m.Elements[m.focusedIndex].Update(msg) // returns a pointer, so why does it need reassigned?
+			_, cmd = m.Elements[m.focusedIndex].Update(msg)
 			return m, cmd
 		}
 	case tea.WindowSizeMsg:
